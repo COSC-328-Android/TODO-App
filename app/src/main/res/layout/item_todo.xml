@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal"
+              android:padding="12dp"
+              android:layout_marginBottom="8dp"
+              android:background="@drawable/todo_item_background"
+              android:elevation="2dp">
+
+    <Button
+            android:id="@+id/completeButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="@string/incomplete_symbol"
+            android:textSize="16sp"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="@color/primary_blue"
+            android:layout_marginEnd="12dp" />
+
+    <TextView
+            android:id="@+id/todoText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/sample_todo"
+            android:textSize="16sp"
+            android:textColor="#333333"
+            android:layout_gravity="center_vertical"
+            android:paddingVertical="8dp" />
+
+    <Button
+            android:id="@+id/deleteButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="@string/delete_symbol"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="@color/delete_red"
+            android:layout_marginStart="8dp" />
+
+</LinearLayout>

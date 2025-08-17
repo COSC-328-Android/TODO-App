@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Todo App</string>
+    <string name="enter_todo_hint">Enter your todo...</string>
+    <string name="add_button">ADD</string>
+    <string name="sample_todo">Sample todo item</string>
+    <string name="todo_added">Todo added!</string>
+    <string name="todo_deleted">Todo deleted</string>
+    <string name="todo_completed">Todo marked as completed</string>
+    <string name="todo_incomplete">Todo marked as incomplete</string>
+    <string name="enter_todo_prompt">Please enter a todo item</string>
+
+    <!-- Button symbols -->
+    <string name="incomplete_symbol">○</string>
+    <string name="complete_symbol">✓</string>
+    <string name="delete_symbol">×</string>
+</resources>
