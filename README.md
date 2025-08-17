@@ -13,7 +13,7 @@ A simple, efficient TODO application built for Android that helps you stay organ
 ## Download APK 📲
 
 ### Option 1: Direct Download from Releases
-1. Go to the [Releases page](https://github.com/COSC-328-Android/TODO-App/releases)
+1. Go to the [Releases page](https://github.com/COSC-328-Android/TODO-App/release)
 2. Download the latest `TODO-App.apk` file
 3. Install on your Android device
 

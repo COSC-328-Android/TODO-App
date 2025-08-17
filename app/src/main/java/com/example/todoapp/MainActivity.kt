@@ -24,9 +24,17 @@ class MainActivity : AppCompatActivity() {
         initViews()
         setupRecyclerView()
         setupClickListeners()
+        loadTodos()
+    }
 
-        // Add some sample data
-        addSampleTodos()
+    override fun onPause() {
+        super.onPause()
+        saveTodos()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        saveTodos()
     }
 
     private fun initViews() {
@@ -64,6 +72,7 @@ class MainActivity : AppCompatActivity() {
         todoList.add(0, newTodo) // Add to top of list
         adapter.notifyItemInserted(0)
         recyclerView.scrollToPosition(0)
+        saveTodos()
 
         editTextTodo.text.clear()
         Toast.makeText(this, getString(R.string.todo_added), Toast.LENGTH_SHORT).show()
@@ -74,6 +83,7 @@ class MainActivity : AppCompatActivity() {
         if (position != -1) {
             todoList.removeAt(position)
             adapter.notifyItemRemoved(position)
+            saveTodos()
             Toast.makeText(this, getString(R.string.todo_deleted), Toast.LENGTH_SHORT).show()
         }
     }
@@ -83,6 +93,7 @@ class MainActivity : AppCompatActivity() {
         if (position != -1) {
             todo.isCompleted = !todo.isCompleted
             adapter.notifyItemChanged(position)
+            saveTodos()
 
             val statusMessage = if (todo.isCompleted) {
                 getString(R.string.todo_completed)
@@ -93,12 +104,14 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun addSampleTodos() {
-        todoList.addAll(listOf(
-            TodoItem(text = "Build awesome Android apps"),
-            TodoItem(text = "Master Kotlin coroutines"),
-            TodoItem(text = "Learn Jetpack Compose", isCompleted = true)
-        ))
+    private fun loadTodos() {
+        val savedTodos = TodoPersistence.loadTodos(this)
+        todoList.clear()
+        todoList.addAll(savedTodos)
         adapter.notifyDataSetChanged()
+    }
+
+    private fun saveTodos() {
+        TodoPersistence.saveTodos(this, todoList)
     }
 }

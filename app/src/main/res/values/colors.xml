@@ -5,4 +5,7 @@
     <color name="primary_blue">#2196F3</color>
     <color name="delete_red">#F44336</color>
     <color name="complete_green">#4CAF50</color>
+    <color name="text_primary">#333333</color>
+    <color name="text_hint">#999999</color>
+    <color name="background_light">#FAFAFA</color>
 </resources>

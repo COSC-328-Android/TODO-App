@@ -1,9 +1,10 @@
 package com.example.todoapp
 
+import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
@@ -15,8 +16,8 @@ class TodoAdapter(
 
     class TodoViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val todoText: TextView = view.findViewById(R.id.todoText)
-        val deleteButton: Button = view.findViewById(R.id.deleteButton)
-        val completeButton: Button = view.findViewById(R.id.completeButton)
+        val deleteButton: ImageButton = view.findViewById(R.id.deleteButton)
+        val completeButton: ImageButton = view.findViewById(R.id.completeButton)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TodoViewHolder {
@@ -33,12 +34,14 @@ class TodoAdapter(
         // Update appearance based on completion status
         if (todo.isCompleted) {
             holder.todoText.alpha = 0.6f
-            holder.completeButton.text = holder.itemView.context.getString(R.string.complete_symbol)
-            holder.completeButton.setBackgroundColor(0xFF4CAF50.toInt()) // Green
+            holder.todoText.paintFlags = holder.todoText.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+            holder.completeButton.setImageResource(R.drawable.ic_check)
+            holder.completeButton.background = holder.itemView.context.getDrawable(R.drawable.button_circle_green)
         } else {
             holder.todoText.alpha = 1.0f
-            holder.completeButton.text = holder.itemView.context.getString(R.string.incomplete_symbol)
-            holder.completeButton.setBackgroundColor(0xFF2196F3.toInt()) // Blue
+            holder.todoText.paintFlags = holder.todoText.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
+            holder.completeButton.setImageResource(R.drawable.ic_circle)
+            holder.completeButton.background = holder.itemView.context.getDrawable(R.drawable.button_circle_blue)
         }
 
         holder.deleteButton.setOnClickListener {
