@@ -10,10 +10,6 @@ A simple, efficient TODO application built for Android that helps you stay organ
 - **Clean Interface**: Minimalist design focused on usability
 - **Persistent Storage**: Your tasks are saved locally on your device
 
-## Screenshots 📱
-
-*Add some screenshots here to show off your beautiful UI!*
-
 ## Download APK 📲
 
 ### Option 1: Direct Download from Releases
